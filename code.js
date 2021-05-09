@@ -16,3 +16,40 @@ function diamond(n) {
 	return diam;
 } 
 
+
+// Testing 1-2-3
+
+var number=function(array){
+  if(array.length !== 0 ) {
+    const newArr = array.map((el, index) => `${index + 1}: ${el}`)
+    return newArr;
+  }
+  
+  return []
+}
+
+
+// Your order, please
+
+function order(words){
+  
+   return words.split(' ').sort((a,b) => {
+     
+    return a.match(/\d/) - b.match(/\d/);
+ }).join(' ')
+}
+
+// Break camelCase
+
+function solution(string) {
+    return string.replace(/([A-Z])/g, ' $1')
+}
+
+
+// Shortest word
+
+function findShort(s){
+  const lengthOfWords  = s.split(' ').map((str) => str.length);
+
+  return Math.min(...lengthOfWords)
+}

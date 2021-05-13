@@ -53,3 +53,16 @@ function findShort(s){
 
   return Math.min(...lengthOfWords)
 }
+
+
+// Binary to Integer
+
+const binaryArrayToNumber = arr => {
+  return parseInt(arr.join(''), 2)
+};
+
+// Remove anchor from URL
+
+function removeUrlAnchor(url){
+  return url.replace(/#.*/g, '')
+}

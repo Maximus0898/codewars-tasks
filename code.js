@@ -66,3 +66,76 @@ const binaryArrayToNumber = arr => {
 function removeUrlAnchor(url){
   return url.replace(/#.*/g, '')
 }
+
+// Factorial 
+
+function factorial(n){
+  if(n === 0 || n === 1) {
+    return 1;
+  } else {
+    return n * factorial(n-1)
+  }
+}
+
+// Anagram Detection - 7 kyu
+
+var isAnagram = function(test, original) {
+  let x = test.toLowerCase().split('').sort().join('')
+  let y = original.toLowerCase().split('').sort().join('')
+  
+  return x === y ? true : false;
+  
+};
+
+
+/* 
+
+
+Regex Password Validation -- 5 kyu
+
+You need to write regex that will validate a password to make sure it meets the following criteria:
+
+At least six characters long
+contains a lowercase letter
+contains an uppercase letter
+contains a number
+Valid passwords will only be alphanumeric characters.
+
+*/
+
+function validate(password) {
+  return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])[A-Za-z0-9]{6,}$/.test(password);
+}
+
+
+// Alternate Capitalization -- 7 kyu
+
+function capitalize(str) {
+const even = []
+const odd = []
+  const string = str.split('')
+  string.map((el, index) => {
+  if(index % 2 === 0 || index === 0) {
+    even.push(el.toUpperCase())
+    odd.push(el)
+  } else {
+    even.push(el)
+    odd.push(el.toUpperCase())
+  }
+  })
+  
+  return [even.join(''), odd.join('')]
+}
+
+
+// Rotate for a Max -- 7 kyu
+
+function maxRot(n) {
+  var str = n.toString();
+    var arr = [str];
+    for (let i = 0;i <= str.length-1;i++){
+        str = str.slice(0,i)+str.slice(i+1)+str[i];
+        arr.push(str.split().join());
+    }
+    return Math.max.apply(null, arr);
+}

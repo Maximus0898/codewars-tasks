@@ -139,3 +139,14 @@ function maxRot(n) {
     }
     return Math.max.apply(null, arr);
 }
+
+
+// Form The Minimum -- 7 kyu
+
+function minValue(values){
+  //your code here
+  const newArr = [ ...new Set(values)]
+  const result = parseInt(newArr.sort((a,b) => a-b).join(''))
+  
+  return result;
+}

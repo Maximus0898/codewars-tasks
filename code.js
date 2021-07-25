@@ -150,3 +150,69 @@ function minValue(values){
   
   return result;
 }
+
+// Saleman's Travel -- 6 kyu
+
+function travel(r, zipcode) {
+    // your code
+  const list = r.split(',')
+    .map((x) => {
+      const addr = x.match(/(^\d+) ([a-zA-z.\s]+) ([A-Z]{2} \d+)$/);
+      return {
+        house: addr[1],
+        street: addr[2],
+        zip: addr[3],
+      };
+    });
+
+  let streets = [];
+  let houses = [];
+  list.forEach((r) => {
+    if (r.zip === zipcode) {
+      streets.push(r.street);
+      houses.push(r.house);
+    }
+  });
+
+  return `${zipcode}:${streets.join(',')}/${houses.join(',')}`;
+}
+
+
+// Kebabize -- 6 kyu
+
+function kebabize(str) {
+  return str.replace(/[0-9]/g, '').split(/(?=[A-Z])/).join('-').toLowerCase()
+}
+
+
+// Count letters in string -- 6 kyu
+
+function letterCount(s){
+  const letters = s.split('')
+  const counter = {}
+  letters.forEach((letter) => counter[letter] = counter[letter] + 1 || 1)
+  return counter
+}
+
+// Reverse every other word in the string -- 6 kyu
+
+
+function reverse(str){
+   return str.split(' ').map((word,index) => index % 2 !== 0 ? word.split('').reverse().join(''): word).join(' ').trim()
+  
+}
+
+
+// The Vowel Code -- 6 kyu
+
+function encode(string) {
+ const vowels = ['a','e', 'i', 'o', 'u'];
+  
+  return [...string].map((v) => vowels.includes(v)? vowels.indexOf(v) +1 : v).join('')
+}
+
+function decode(string) {
+  const vowels = ['a','e', 'i', 'o', 'u'];
+  
+  return [...string].map((v) => parseInt(v)? vowels[parseInt(v) - 1] : v).join('')
+}
